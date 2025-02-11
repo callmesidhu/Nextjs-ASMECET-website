@@ -43,7 +43,7 @@ export const Intro = () => {
             </div>
 
             {/* Responsive Scrolling Text */}
-            <div className="overflow-hidden mt-8">
+            <div className="overflow-hidden mt-8 py-3">
                 <h1 className="animate-scroll whitespace-nowrap text-3xl md:text-5xl lg:text-6xl xl:text-8xl font-semibold">
                     The American Society of Mechanical Engineers (ASME) is an American professional association that, in its own words, &quot;promotes the art, science, and practice of multidisciplinary engineering and allied sciences around the globe&quot; via &quot;continuing education, training and professional development, codes and standards, research, conferences and publications, government relations, and other forms of outreach.&quot;
                 </h1>
