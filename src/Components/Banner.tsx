@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 function Banner() {
   const images = [
-    'https://i.pinimg.com/originals/cb/64/33/cb643340343d0f6259fdd7492d9fb000.jpg', // Replace with your image paths
-    'https://i.pinimg.com/originals/cb/64/33/cb643340343d0f6259fdd7492d9fb000.jpg', // Replace with your image paths
+    '/cetImg.jpg'
+
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
