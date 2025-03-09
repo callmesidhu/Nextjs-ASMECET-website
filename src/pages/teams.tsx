@@ -143,6 +143,8 @@ function Teams() {
         )}
       >
         <Image
+          width={250}
+          height={150}
           src={member.imgURL || logo}
           className="rounded-lg"
           alt={member.name}

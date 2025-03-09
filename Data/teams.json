@@ -2,35 +2,101 @@
   "execome": [
     {
       "id": 1,
-      "name": "ABCD",
-      "role": "abcd",
-      "imgURL": ""
+      "name": "MITHUN ASOK",
+      "role": "CHAIRPERSON",
+      "imgURL": "/images/Teams/8.jpg"
     },
     {
       "id": 2,
-      "name": "EFGH",
-      "role": "efgh",
-      "imgURL": ""
+      "name": "SREENATH C",
+      "role": "SECRETARY",
+      "imgURL": "/images/Teams/16.jpg"
     },
     {
       "id": 3,
-      "name": "IJKL",
-      "role": "ijkl",
-      "imgURL": ""
+      "name": "ALVIN GEORGE",
+      "role": "J SECRETARY",
+      "imgURL": "/images/Teams/1.jpg"
+    },
+    {
+      "id": 4,
+      "name": "NIRANJAN A K",
+      "role": "J SECRETARY",
+      "imgURL": "/images/Teams/11.jpg"
+    },
+    {
+      "id": 5,
+      "name": "ASWIN U M",
+      "role": "TREASURER",
+      "imgURL": "/images/Teams/3.jpg"
+    },
+    {
+      "id": 6,
+      "name": "NITHYA A S",
+      "role": "VICE CHAIRPERSON",
+      "imgURL": "/images/Teams/12.jpg"
+    },
+    {
+      "id": 7,
+      "name": "ARJUN C S",
+      "role": "TECHNICAL HEAD",
+      "imgURL": "/images/Teams/2.jpg"
+    },
+    {
+      "id": 8,
+      "name": "ROHAN RAJESH",
+      "role": "TECHNICAL HEAD",
+      "imgURL": "/images/Teams/14.jpg"
+    },
+    {
+      "id": 9,
+      "name": "GAURAV G",
+      "role": "PROGRAM HEAD",
+      "imgURL": "/images/Teams/5.jpg"
+    },
+    {
+      "id": 10,
+      "name": "Priyadarsh K V",
+      "role": "PROGRAM HEAD",
+      "imgURL": "/images/Teams/13.jpg"
+    },
+    {
+      "id": 11,
+      "name": "GAYATHRI C J",
+      "role": "DESIGN HEAD",
+      "imgURL": "/images/Teams/6.jpg"
+    },
+    {
+      "id": 12,
+      "name": "GOPIKA KRISHNAN",
+      "role": "DESIGN HEAD",
+      "imgURL": "/images/Teams/7.jpg"
+    },
+    {
+      "id": 13,
+      "name": "SANDRA S L",
+      "role": "PUBLICITY HEAD",
+      "imgURL": "/images/Teams/15.jpg"
+    },
+    {
+      "id": 14,
+      "name": "Vishnu V",
+      "role": "PUBLICITY HEAD",
+      "imgURL": "/images/Teams/17.jpg"
     }
   ],
   "web": [
     {
-      "id": 1,
-      "name": "S Sidharth",
-      "role": "Developer",
-      "imgURL": ""
+      "id": 15,
+      "name": "S SIDHARTH",
+      "role": "WEB DEVELOPER",
+      "imgURL": "/images/Teams/18.jpg"
     },
     {
-      "id": 2,
-      "name": "Ivin Mathew",
-      "role": "Developer",
-      "imgURL": ""
+      "id": 16,
+      "name": "IVIN MATHEW",
+      "role": "WEB DEVELOPER",
+      "imgURL": "/images/Teams/19.jpg"
     }
   ]
 }
