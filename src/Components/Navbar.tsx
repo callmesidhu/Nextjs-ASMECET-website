@@ -48,7 +48,7 @@ function Navbar(props: Props) {
           </button>
           <button onClick={() => handleScroll('achievements')}>
             <h1 className='text-2xl font-serif'>
-              Achievments
+              Achievements
             </h1>
           </button>
           <button onClick={goToTeams}>
