@@ -32,27 +32,33 @@ function Teams() {
     router.push("/");
   };
 
+  // State to control the visibility animation of team cards
   const [isActive, setIsActive] = useState(false);
   const teamsRef = useRef<HTMLDivElement | null>(null);
 
-  // Intersection Observer logic
+  // For small devices, force the team cards to show immediately
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsActive(entry.isIntersecting);
-      },
-      { threshold: 0.2 } // Adjust based on when you want the effect to trigger
-    );
-
-    if (teamsRef.current) {
-      observer.observe(teamsRef.current);
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      setIsActive(true);
     }
+  }, []);
 
-    return () => {
-      if (teamsRef.current) {
-        observer.unobserve(teamsRef.current);
-      }
-    };
+  // Intersection Observer logic for larger devices
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth >= 640 && teamsRef.current) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsActive(entry.isIntersecting);
+        },
+        { threshold: 0.2 } // Adjust based on when you want the effect to trigger
+      );
+      observer.observe(teamsRef.current);
+      return () => {
+        if (teamsRef.current) {
+          observer.unobserve(teamsRef.current);
+        }
+      };
+    }
   }, []);
 
   const [web, setWeb] = useState(false);
@@ -113,13 +119,13 @@ function Teams() {
             <div className="button-container">
               <button
                 onClick={() => handleTeamSwitch("execome")}
-                className={clsx("btn", { "active": activeButton === "execome" })}
+                className={clsx("btn", { active: activeButton === "execome" })}
               >
                 Execome
               </button>
               <button
                 onClick={() => handleTeamSwitch("web")}
-                className={clsx("btn", { "active": activeButton === "web" })}
+                className={clsx("btn", { active: activeButton === "web" })}
               >
                 Web Team
               </button>
@@ -129,41 +135,40 @@ function Teams() {
 
           {/* Team Member Cards */}
           <div className="w-full flex justify-evenly">
-  <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-6 justify-evenly">
-    {Team.map((member) => (
-      <div
-        key={member.id}
-        className={clsx(
-          "bg-gray-800 justify-evenly p-4 rounded-xl transform transition duration-300 hover:scale-105",
-          { "opacity-0 translate-y-8": !isActive }, // Hidden state
-          {
-            "opacity-100 justify-evenly translate-y-0 transition-all duration-700 ease-in-out delay-0":
-              isActive,
-          } // Visible state
-        )}
-      >
-        <Image
-          width={250}
-          height={150}
-          src={member.imgURL || logo}
-          className="rounded-lg"
-          alt={member.name}
-        />
-        <h2 className="text-lg font-semibold text-green-400 text-center">
-          {member.name}
-        </h2>
-        <p className="text-white text-center">{member.role}</p>
-      </div>
-    ))}
-  </div>
-</div>
-
+            <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-6 justify-evenly">
+              {Team.map((member) => (
+                <div
+                  key={member.id}
+                  className={clsx(
+                    "bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105",
+                    { "opacity-0 translate-y-8": !isActive },
+                    {
+                      "opacity-100 translate-y-0 transition-all duration-700 ease-in-out":
+                        isActive,
+                    }
+                  )}
+                >
+                  <Image
+                    width={250}
+                    height={150}
+                    src={member.imgURL || logo}
+                    className="rounded-lg"
+                    alt={member.name}
+                  />
+                  <h2 className="text-lg font-semibold text-green-400 text-center">
+                    {member.name}
+                  </h2>
+                  <p className="text-white text-center">{member.role}</p>
+                </div>
+              ))}
+            </div>
+          </div>
 
           {/* Background Image */}
           <Image
             className="-z-50 fixed bottom-0 right-0"
             src={intro}
-            alt="Logo"
+            alt="Background Logo"
           />
         </div>
       </div>
