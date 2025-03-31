@@ -39,9 +39,10 @@ function Banner() {
           <Image
             src={image}
             alt={`Slide ${index}`}
-            layout="fill"
             objectFit="cover"
             objectPosition="center"
+            height={1000} width={1000}
+            className='w-full h-full'
             priority={index === 0} // Load the first image with priority
           />
         </div>

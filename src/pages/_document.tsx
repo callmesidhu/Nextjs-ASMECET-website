@@ -1,4 +1,5 @@
 // src/pages/_document.tsx
+import Navbar from '@/Components/Navbar';
 import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 class MyDocument extends Document {

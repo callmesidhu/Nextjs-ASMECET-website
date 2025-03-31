@@ -6,7 +6,6 @@ import logo from "./../../public/ASMEcet.jpeg";
 import clsx from "clsx";
 import people from "../../Data/teams.json";
 import { useRouter } from "next/router";
-import navlogo from "./../../public/nav-logo.png";
 import "../Components/Teams.css";
 
 function Teams() {
@@ -73,8 +72,7 @@ function Teams() {
   };
 
   return (
-    <>
-      {/* Navbar */}
+    <>{/* 
       <div className="flex bg-black w-full justify-between py-1 px-2 fixed top-0 z-10">
         <div className="m-4">
           <Image src={navlogo} width={100} height={100} alt="Logo" />
@@ -90,23 +88,13 @@ function Teams() {
             Sign&nbsp;In
           </button>
         </div>
-      </div>
-
-      {/* Sign-In Section */}
-      <div className="flex flex-col p-5 bg-black">
-        <button
-          onClick={handleSignIn}
-          className="px-4 py-2 bg-[#0F2819] text-gtext rounded hover:bg-[#000F0A]"
-        >
-          Sign In
-        </button>
-      </div>
+      </div> */}
 
       {/* Teams Section */}
       <div
         ref={teamsRef}
         id="teams"
-        className="mt-10 flex flex-col justify-center items-center"
+        className="mt-6 flex flex-col justify-center items-center"
       >
         <div className="p-9 justify-evenly">
           {/* Heading and Buttons */}
@@ -140,12 +128,12 @@ function Teams() {
                 <div
                   key={member.id}
                   className={clsx(
-                    "bg-gray-800 p-4 rounded-xl transform transition duration-300 hover:scale-105",
-                    { "opacity-0 translate-y-8": !isActive },
+                    "bg-gray-800 justify-evenly p-4 rounded-xl transform transition duration-300 hover:scale-105",
+                    { "opacity-0 translate-y-8": !isActive }, // Hidden state
                     {
-                      "opacity-100 translate-y-0 transition-all duration-700 ease-in-out":
+                      "opacity-100 justify-evenly translate-y-0 transition-all duration-700 ease-in-out delay-0":
                         isActive,
-                    }
+                    } // Visible state
                   )}
                 >
                   <Image

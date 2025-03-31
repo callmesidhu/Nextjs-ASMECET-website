@@ -31,47 +31,42 @@ function Navbar(props: Props) {
 
   return (
     <>
-      <div className="flex bg-black w-full justify-between p-5 fixed top-0 z-10">
-        <div className='mx-6'>
-        <Image
-      src={logo}
-      width={100}
-      height={100}
-      alt="Logo"
-    />
-        </div>
+      <div className="flex bg-black w-full justify-between p-5 sticky top-0 z-10">
+        <Link href={"/"} className='mx-6'>
+          <Image
+            src={logo}
+            width={100}
+            height={100}
+            alt="Logo"
+          />
+        </Link>
         <div className="hidden md:flex flex-row gap-16 items-center">
-          <button onClick={() => handleScroll('home')}>
-            <h1 className='text-2xl font-serif'>
+          <Link href="/#home" className='text-2xl font-serif'>
               Home
-            </h1>
-          </button>
-          <button onClick={() => handleScroll('achievements')}>
+          </Link>
+          <Link href={"/#achievements"}>
             <h1 className='text-2xl font-serif'>
               Achievements
             </h1>
-          </button>
-          <button onClick={goToTeams}>
+          </Link>
+          <Link href={"/teams"}>
             <h1 className='text-2xl font-serif'>
               Teams
             </h1>
-          </button>
-          <button  onClick={() => handleScroll('events')}>
-            <h1 className='text-2xl font-serif'>
-              Events
-            </h1>
-          </button>
-          <button  onClick={() => handleScroll('contact')}>
+          </Link>
+          <Link href="/events" className='text-2xl font-serif'>
+            Events
+          </Link>
+          <Link href={"/#contact"}>
             <h1 className='text-2xl font-serif'>
               Contact
             </h1>
-          </button>
-          <button
-            onClick={handleSignIn}
+          </Link>
+          <Link href={"/signIn"}
             className="px-6 py-2 bg-white text-black hover:bg-gray-300 rounded-3xl "
           >
             Sign&nbsp;In
-          </button>
+          </Link>
         </div>
         <div className="md:hidden flex items-center">
           <button className="mobile-menu-button" onClick={toggleMenu}>

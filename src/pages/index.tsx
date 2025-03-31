@@ -1,6 +1,8 @@
 // @/src/pages/index.tsx
+"use client"
+
+import React from 'react';
 import React, { useState, useEffect } from 'react';
-import Navbar from '@/Components/Navbar';
 import About from '@/Components/About';
 import Banner from '@/Components/Banner';
 import Contact from '@/Components/Contact';
@@ -18,10 +20,10 @@ function HomePage() {
 
   return loading ? <Loader /> : (
     <>
-      <Navbar />
-      <Intro />
+      <Intro/>
       <Banner />
       <Asme />
+      <UpcomingEvents />
       <About />
       <Contact />
     </>
