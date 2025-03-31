@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import logo from '../../public/nav-logo.png'
 import Image from 'next/image';
+import Link from 'next/link';
 
 type Props = {};
 
@@ -30,15 +31,15 @@ function Navbar(props: Props) {
 
   return (
     <>
-      <div className="flex bg-black w-full justify-between p-5 fixed top-0 z-10">
-        <div className='mx-6'>
-        <Image
-      src={logo}
-      width={100}
-      height={100}
-      alt="Logo"
-    />
-        </div>
+      <div className="flex bg-black w-full justify-between p-5 sticky top-0 z-10">
+        <Link href={"/"} className='mx-6'>
+          <Image
+            src={logo}
+            width={100}
+            height={100}
+            alt="Logo"
+          />
+        </Link>
         <div className="hidden md:flex flex-row gap-16 items-center">
           <button onClick={() => handleScroll('home')}>
             <h1 className='text-2xl font-serif'>
@@ -55,12 +56,10 @@ function Navbar(props: Props) {
               Teams
             </h1>
           </button>
-          <button  onClick={() => handleScroll('events')}>
-            <h1 className='text-2xl font-serif'>
-              Events
-            </h1>
-          </button>
-          <button  onClick={() => handleScroll('contact')}>
+          <Link href="/events" className='text-2xl font-serif'>
+            Events
+          </Link>
+          <button onClick={() => handleScroll('contact')}>
             <h1 className='text-2xl font-serif'>
               Contact
             </h1>

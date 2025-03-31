@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import intro from './../../public/intro.png';
 
 export const Intro = () => {
     return (
-        <div id='home' className="mt-24">
+        <div id='home'>
             <div className="relative">
                 {/* Responsive flex layout for large and small screens */}
                 <div className="flex flex-col lg:flex-row items-center lg:items-start">
