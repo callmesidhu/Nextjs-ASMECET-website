@@ -1,7 +1,6 @@
 // @/src/pages/index.tsx
-"use client"
+"use client";
 
-import React from 'react';
 import React, { useState, useEffect } from 'react';
 import About from '@/Components/About';
 import Banner from '@/Components/Banner';
@@ -14,16 +13,28 @@ function HomePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 3000);
-    return () => clearTimeout(timer);
+    // Check if the loader has already been shown
+    const hasLoaded = sessionStorage.getItem('hasLoaded');
+
+    if (hasLoaded) {
+      // If the loader has already been shown, skip it
+      setLoading(false);
+    } else {
+      // Show the loader and set a timer
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('hasLoaded', 'true'); // Mark the loader as shown
+      }, 3000);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   return loading ? <Loader /> : (
     <>
-      <Intro/>
+      <Intro />
       <Banner />
       <Asme />
-      <UpcomingEvents />
       <About />
       <Contact />
     </>
