@@ -31,27 +31,33 @@ function Teams() {
     router.push("/");
   };
 
+  // State to control the visibility animation of team cards
   const [isActive, setIsActive] = useState(false);
   const teamsRef = useRef<HTMLDivElement | null>(null);
 
-  // Intersection Observer logic
+  // For small devices, force the team cards to show immediately
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsActive(entry.isIntersecting);
-      },
-      { threshold: 0.2 } // Adjust based on when you want the effect to trigger
-    );
-
-    if (teamsRef.current) {
-      observer.observe(teamsRef.current);
+    if (typeof window !== "undefined" && window.innerWidth < 640) {
+      setIsActive(true);
     }
+  }, []);
 
-    return () => {
-      if (teamsRef.current) {
-        observer.unobserve(teamsRef.current);
-      }
-    };
+  // Intersection Observer logic for larger devices
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.innerWidth >= 640 && teamsRef.current) {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsActive(entry.isIntersecting);
+        },
+        { threshold: 0.2 } // Adjust based on when you want the effect to trigger
+      );
+      observer.observe(teamsRef.current);
+      return () => {
+        if (teamsRef.current) {
+          observer.unobserve(teamsRef.current);
+        }
+      };
+    }
   }, []);
 
   const [web, setWeb] = useState(false);
@@ -101,13 +107,13 @@ function Teams() {
             <div className="button-container">
               <button
                 onClick={() => handleTeamSwitch("execome")}
-                className={clsx("btn", { "active": activeButton === "execome" })}
+                className={clsx("btn", { active: activeButton === "execome" })}
               >
                 Execome
               </button>
               <button
                 onClick={() => handleTeamSwitch("web")}
-                className={clsx("btn", { "active": activeButton === "web" })}
+                className={clsx("btn", { active: activeButton === "web" })}
               >
                 Web Team
               </button>
@@ -146,12 +152,11 @@ function Teams() {
             </div>
           </div>
 
-
           {/* Background Image */}
           <Image
             className="-z-50 fixed bottom-0 right-0"
             src={intro}
-            alt="Logo"
+            alt="Background Logo"
           />
         </div>
       </div>

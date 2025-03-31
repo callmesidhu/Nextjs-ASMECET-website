@@ -90,8 +90,10 @@ function Navbar(props: Props) {
       <div className={`mobile-menu ${isOpen ? 'block' : 'hidden'} md:hidden flex flex-col gap-4 p-5 bg-black`}>
         <p>Home</p>
         <p>Achievements</p>
-        <p>Team</p>
-        <p>Contact</p>
+        <Link href="/teams"><p className='cursor-pointer text-center' >Team</p></Link>
+        <button  onClick={() => handleScroll('contact')}>
+        Contact
+        </button>
         <button
           onClick={handleSignIn}
           className="px-4 py-2 bg-[#0F2819] text-gtext rounded hover:bg-[#000F0A]"
