@@ -6,6 +6,7 @@ import { useRouter } from 'next/router';
 import { getFirestore, doc, getDoc, collection, addDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '@/lib/firebaseConfig'; // Import the initialized Firestore and Storage instances
+import Image from 'next/image';
 
 const RegisterEvent = () => {
   const router = useRouter();
@@ -90,13 +91,13 @@ const RegisterEvent = () => {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100">
+    <div className="flex flex-col min-h-screen bg-gray-100 text-black">
       <nav className="flex items-center justify-between p-4 bg-blue-600 text-white">
         <h1 className="text-xl font-bold">Event Registration</h1>
       </nav>
       <div className="flex items-center justify-center flex-grow">
         <form onSubmit={handleSubmit} className="w-full max-w-lg bg-white p-8 rounded shadow-md">
-          <h1 className="text-3xl font-bold mb-6">Register for {event?.eventName ?? 'Event'}</h1>
+          <h1 className="text-3xl font-bold mb-6">{event?.eventName ?? 'Event'} Registration</h1>
           {error && <p className="text-red-500 mb-4">{error}</p>}
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="name">
@@ -163,13 +164,13 @@ const RegisterEvent = () => {
               required
             />
           </div>
-          {event && event.enablePayments && (
+          {event && event.enablePayments && event.paymentImageUrl && (
             <>
               <div className="mb-4">
                 <label className="block text-gray-700 text-sm font-bold mb-2">
                   Payment Image
                 </label>
-                <img src={event.paymentImageUrl} alt="Payment" className="w-full h-48 object-cover mb-4" />
+                <Image src={event.paymentImageUrl} alt="Payment" className="w-full h-48 object-cover mb-4" />
                 <input
                   id="paymentImage"
                   type="file"
