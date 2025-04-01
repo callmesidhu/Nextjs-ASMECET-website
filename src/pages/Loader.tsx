@@ -18,7 +18,7 @@ export default function Loader() {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-black">
+    <div className="fixed inset-0 flex items-center justify-center bg-black z-50">
       <motion.div
         className="absolute inset-0"
         initial={{ height: "0%" }}
